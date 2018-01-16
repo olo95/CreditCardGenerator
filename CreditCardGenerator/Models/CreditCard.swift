@@ -9,8 +9,9 @@
 import Foundation
 
 struct CreditCardTemplate {
-    static var spaceIndexes = [4, 9, 14, 19, 25, 29]
-    static var length = 30
+    let creditCardNumber: CountableRange<Int> = 0..<19
+    let creditCardDate: CountableRange<Int> = 19..<25
+    let creditCardCvc: CountableRange<Int> = 25..<30
 }
 
 class CreditCard {

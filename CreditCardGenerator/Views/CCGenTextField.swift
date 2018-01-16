@@ -25,13 +25,19 @@ class CCGenTextField: UITextField {
                 return
             }
             
-            if text.count == CreditCardTemplate.length {
+            if text.count == ConstantsCreditCard.length {
                 text.removeLast()
                 self.text = text
                 return
             }
             
-            if CreditCardTemplate.spaceIndexes.contains(text.count - 1) {
+            if ConstantsCreditCard.backslash.index == text.count - 1 {
+                text.removeLast()
+                text.append("\(ConstantsCreditCard.backslash.char)\(value.last!)")
+                self.text = text
+            }
+            
+            if ConstantsCreditCard.spaceIndexes.contains(text.count - 1) {
                 text.removeLast()
                 text.append(" \(value.last!)")
                 self.text = text

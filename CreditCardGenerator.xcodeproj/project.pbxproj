@@ -32,6 +32,10 @@
 		D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */; };
 		D6EB7CE1200E953C00B35535 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE0200E953C00B35535 /* CreditCard.swift */; };
 		D6EB7CE2200E953C00B35535 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE0200E953C00B35535 /* CreditCard.swift */; };
+		D6EB7CE4200EA66400B35535 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE3200EA66400B35535 /* ObservableType.swift */; };
+		D6EB7CE5200EA66400B35535 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE3200EA66400B35535 /* ObservableType.swift */; };
+		D6EB7CE7200EA72100B35535 /* ConstantsCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */; };
+		D6EB7CE8200EA72100B35535 /* ConstantsCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,8 @@
 		D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenViewModel.swift; sourceTree = "<group>"; };
 		D6EB7CE0200E953C00B35535 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		D6EB7CE3200EA66400B35535 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsCreditCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +165,7 @@
 		D6EB7CBD200E7A6100B35535 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6EB7CC3200E7D2B00B35535 /* CCGenViewController.swift */,
-				D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */,
+				D6EB7CE9200EA9BB00B35535 /* CCGen */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */,
+				D6EB7CE3200EA66400B35535 /* ObservableType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EB7CC7200E7E3100B35535 /* ConstantsAPI.swift */,
+				D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +220,15 @@
 				D6EB7CE0200E953C00B35535 /* CreditCard.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D6EB7CE9200EA9BB00B35535 /* CCGen */ = {
+			isa = PBXGroup;
+			children = (
+				D6EB7CC3200E7D2B00B35535 /* CCGenViewController.swift */,
+				D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */,
+			);
+			path = CCGen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +454,8 @@
 				D6EB7CD1200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD7200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC4200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
+				D6EB7CE7200EA72100B35535 /* ConstantsCreditCard.swift in Sources */,
+				D6EB7CE4200EA66400B35535 /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +473,8 @@
 				D6EB7CD2200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD8200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC5200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
+				D6EB7CE8200EA72100B35535 /* ConstantsCreditCard.swift in Sources */,
+				D6EB7CE5200EA66400B35535 /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

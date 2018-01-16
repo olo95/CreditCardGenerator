@@ -11,6 +11,8 @@ import RxCocoa
 
 class CCGenViewController: UIViewController {
     
+    let bag = DisposeBag()
+    
     var ccGenTextField: CCGenTextField!
     var ccGenValidateButton: CCGenValidateButton!
     var ccGenValidationIndicatorView: CCGenValidationIndicatorView!
@@ -61,6 +63,7 @@ class CCGenViewController: UIViewController {
         ccGenMainStackView.addArrangedSubview(ccGenOutputStackView)
         
         ccGenValidationIndicatorView = CCGenValidationIndicatorView()
+        ccGenValidationIndicatorView.configure()
         ccGenOutputStackView.addArrangedSubview(ccGenValidationIndicatorView)
         ccGenGenerateButton = CCGenGenerateButton()
         ccGenGenerateButton.configure()
@@ -68,6 +71,12 @@ class CCGenViewController: UIViewController {
     }
     
     private func bindUI() {
-        
+        ccGenTextField.rx.text
+            .unwrap()
+            .filter { $0.count == ConstantsCreditCard.length }
+            .sample(ccGenValidateButton.rx.tap)
+            .subscribe( onNext: { text in
+                
+            }).disposed(by: bag)
     }
 }

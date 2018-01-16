@@ -11,6 +11,7 @@ import UIKit
 class CCGenValidationIndicatorView: UIView {
     
     func configure() {
-        
+        layer.cornerRadius = frame.width / 2
+        backgroundColor = UIColor.red
     }
 }
