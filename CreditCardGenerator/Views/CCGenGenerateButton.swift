@@ -6,4 +6,11 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CCGenGenerateButton: UIButton {
+    
+    func configure() {
+        setTitle("Generate", for: .normal)
+    }
+}

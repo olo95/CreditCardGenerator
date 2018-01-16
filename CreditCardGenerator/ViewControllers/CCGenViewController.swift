@@ -11,8 +11,63 @@ import RxCocoa
 
 class CCGenViewController: UIViewController {
     
+    var ccGenTextField: CCGenTextField!
+    var ccGenValidateButton: CCGenValidateButton!
+    var ccGenValidationIndicatorView: CCGenValidationIndicatorView!
+    var ccGenGenerateButton: CCGenGenerateButton!
+    
+    var ccGenMainStackView: UIStackView!
+    var ccGenInputStackView: UIStackView!
+    var ccGenOutputStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        setupUI()
+        bindUI()
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = UIColor.lightGray
+        setupMainStackView()
+        setupInputStackView()
+        setupOutputStackView()
+    }
+    
+    private func setupMainStackView() {
+        ccGenMainStackView = UIStackView(frame: view.frame)
+        ccGenMainStackView.distribution = .fillEqually
+        ccGenMainStackView.axis = .vertical
+        view.addSubview(ccGenMainStackView)
+    }
+    
+    private func setupInputStackView() {
+        ccGenInputStackView = UIStackView()
+        ccGenInputStackView.distribution = .fillEqually
+        ccGenInputStackView.axis = .vertical
+        ccGenMainStackView.addArrangedSubview(ccGenInputStackView)
+        
+        ccGenTextField = CCGenTextField()
+        ccGenTextField.configure()
+        ccGenInputStackView.addArrangedSubview(ccGenTextField)
+        ccGenValidateButton = CCGenValidateButton()
+        ccGenValidateButton.configure()
+        ccGenInputStackView.addArrangedSubview(ccGenValidateButton)
+    }
+    
+    private func setupOutputStackView() {
+        ccGenOutputStackView = UIStackView()
+        ccGenOutputStackView.distribution = .fillEqually
+        ccGenOutputStackView.axis = .horizontal
+        ccGenMainStackView.addArrangedSubview(ccGenOutputStackView)
+        
+        ccGenValidationIndicatorView = CCGenValidationIndicatorView()
+        ccGenOutputStackView.addArrangedSubview(ccGenValidationIndicatorView)
+        ccGenGenerateButton = CCGenGenerateButton()
+        ccGenGenerateButton.configure()
+        ccGenOutputStackView.addArrangedSubview(ccGenGenerateButton)
+    }
+    
+    private func bindUI() {
+        
     }
 }

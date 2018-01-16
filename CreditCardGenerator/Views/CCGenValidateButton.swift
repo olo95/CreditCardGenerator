@@ -6,4 +6,11 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CCGenValidateButton: UIButton {
+    
+    func configure() {
+        setTitle("Validate", for: .normal)
+    }
+}

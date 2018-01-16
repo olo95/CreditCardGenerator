@@ -1,5 +1,5 @@
 //
-//  CCGenValidationIndicatorView.swift
+//  UIResponder+Extension.swift
 //  CreditCardGenerator
 //
 //  Created by Alexander Stolar on 16.01.2018.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CCGenValidationIndicatorView: UIView {
+extension UIResponder {
     
-    func configure() {
-        
+    static var typeName: String {
+        return String(describing: self)
     }
 }

@@ -24,6 +24,12 @@
 		D6EB7CD2200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CD0200E803A00B35535 /* CCGenValidationIndicatorView.swift */; };
 		D6EB7CD4200E804C00B35535 /* CCGenGenerateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CD3200E804C00B35535 /* CCGenGenerateButton.swift */; };
 		D6EB7CD5200E804C00B35535 /* CCGenGenerateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CD3200E804C00B35535 /* CCGenGenerateButton.swift */; };
+		D6EB7CD7200E862600B35535 /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */; };
+		D6EB7CD8200E862600B35535 /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */; };
+		D6EB7CDA200E88F400B35535 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */; };
+		D6EB7CDB200E88F400B35535 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */; };
+		D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */; };
+		D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,9 @@
 		D6EB7CCD200E802600B35535 /* CCGenValidateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenValidateButton.swift; sourceTree = "<group>"; };
 		D6EB7CD0200E803A00B35535 /* CCGenValidationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenValidationIndicatorView.swift; sourceTree = "<group>"; };
 		D6EB7CD3200E804C00B35535 /* CCGenGenerateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenGenerateButton.swift; sourceTree = "<group>"; };
+		D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
+		D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +130,7 @@
 		D6EB7C9C200E7A3700B35535 /* CreditCardGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */,
 				D6EB7C9D200E7A3700B35535 /* AppDelegate.swift */,
 				D6EB7CA9200E7A3700B35535 /* Info.plist */,
 				D6EB7CC6200E7D8600B35535 /* Utils */,
@@ -146,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EB7CC3200E7D2B00B35535 /* CCGenViewController.swift */,
+				D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,6 +171,7 @@
 		D6EB7CBF200E7A6C00B35535 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EB7CDA200E88F400B35535 /* Launch Screen.storyboard in Resources */,
 				D6EB7CA5200E7A3700B35535 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EB7CDB200E88F400B35535 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +420,10 @@
 				D6EB7CCB200E801600B35535 /* CCGenTextField.swift in Sources */,
 				D6EB7CC8200E7E3100B35535 /* ConstantsAPI.swift in Sources */,
 				D6EB7C9E200E7A3700B35535 /* AppDelegate.swift in Sources */,
+				D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCE200E802600B35535 /* CCGenValidateButton.swift in Sources */,
 				D6EB7CD1200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
+				D6EB7CD7200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC4200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,8 +436,10 @@
 				D6EB7CCC200E801600B35535 /* CCGenTextField.swift in Sources */,
 				D6EB7CC9200E7E3100B35535 /* ConstantsAPI.swift in Sources */,
 				D6EB7CB3200E7A3700B35535 /* CreditCardGeneratorTests.swift in Sources */,
+				D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCF200E802600B35535 /* CCGenValidateButton.swift in Sources */,
 				D6EB7CD2200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
+				D6EB7CD8200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC5200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +570,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH748L7MFS;
 				INFOPLIST_FILE = CreditCardGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SaszaCorp.CreditCardGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,6 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH748L7MFS;
 				INFOPLIST_FILE = CreditCardGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SaszaCorp.CreditCardGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";

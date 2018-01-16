@@ -6,4 +6,11 @@
 //  Copyright © 2018 Alexander Stolar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CCGenTextField: UITextField {
+    
+    func configure() {
+        backgroundColor = UIColor.white
+    }
+}
