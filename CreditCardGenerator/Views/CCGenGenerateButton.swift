@@ -11,6 +11,7 @@ import UIKit
 class CCGenGenerateButton: UIButton {
     
     func configure() {
+        isUserInteractionEnabled = true
         setTitle("Generate", for: .normal)
     }
 }

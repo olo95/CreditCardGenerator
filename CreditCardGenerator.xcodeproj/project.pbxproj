@@ -30,6 +30,8 @@
 		D6EB7CDB200E88F400B35535 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */; };
 		D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */; };
 		D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */; };
+		D6EB7CE1200E953C00B35535 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE0200E953C00B35535 /* CreditCard.swift */; };
+		D6EB7CE2200E953C00B35535 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE0200E953C00B35535 /* CreditCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,7 @@
 		D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
 		D6EB7CD9200E88F400B35535 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D6EB7CDC200E8DDD00B35535 /* CCGenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenViewModel.swift; sourceTree = "<group>"; };
+		D6EB7CE0200E953C00B35535 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 				D6EB7CC6200E7D8600B35535 /* Utils */,
 				D6EB7CBF200E7A6C00B35535 /* Extensions */,
 				D6EB7CBE200E7A6800B35535 /* API */,
+				D6EB7CDF200E952500B35535 /* Models */,
 				D6EB7CBD200E7A6100B35535 /* ViewControllers */,
 				D6EB7CC2200E7CDE00B35535 /* Views */,
 				D6EB7CC0200E7BD500B35535 /* Resources */,
@@ -201,6 +205,14 @@
 				D6EB7CC7200E7E3100B35535 /* ConstantsAPI.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D6EB7CDF200E952500B35535 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6EB7CE0200E953C00B35535 /* CreditCard.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +434,7 @@
 				D6EB7C9E200E7A3700B35535 /* AppDelegate.swift in Sources */,
 				D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCE200E802600B35535 /* CCGenValidateButton.swift in Sources */,
+				D6EB7CE1200E953C00B35535 /* CreditCard.swift in Sources */,
 				D6EB7CD1200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD7200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC4200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
@@ -438,6 +451,7 @@
 				D6EB7CB3200E7A3700B35535 /* CreditCardGeneratorTests.swift in Sources */,
 				D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCF200E802600B35535 /* CCGenValidateButton.swift in Sources */,
+				D6EB7CE2200E953C00B35535 /* CreditCard.swift in Sources */,
 				D6EB7CD2200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD8200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC5200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
