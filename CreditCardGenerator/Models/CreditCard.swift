@@ -8,12 +8,6 @@
 
 import Foundation
 
-struct CreditCardTemplate {
-    let creditCardNumber: CountableRange<Int> = 0..<19
-    let creditCardDate: CountableRange<Int> = 19..<25
-    let creditCardCvc: CountableRange<Int> = 25..<30
-}
-
 class CreditCard {
     
 }

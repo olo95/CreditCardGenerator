@@ -36,6 +36,10 @@
 		D6EB7CE5200EA66400B35535 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE3200EA66400B35535 /* ObservableType.swift */; };
 		D6EB7CE7200EA72100B35535 /* ConstantsCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */; };
 		D6EB7CE8200EA72100B35535 /* ConstantsCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */; };
+		D6EB7CEB200EBC8700B35535 /* ConstantsCreditCardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CEA200EBC8700B35535 /* ConstantsCreditCardTemplate.swift */; };
+		D6EB7CEC200EBC8700B35535 /* ConstantsCreditCardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CEA200EBC8700B35535 /* ConstantsCreditCardTemplate.swift */; };
+		D6EB7CEE200EBD3800B35535 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CED200EBD3800B35535 /* String+Extension.swift */; };
+		D6EB7CEF200EBD3800B35535 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CED200EBD3800B35535 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,8 @@
 		D6EB7CE0200E953C00B35535 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		D6EB7CE3200EA66400B35535 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsCreditCard.swift; sourceTree = "<group>"; };
+		D6EB7CEA200EBC8700B35535 /* ConstantsCreditCardTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsCreditCardTemplate.swift; sourceTree = "<group>"; };
+		D6EB7CED200EBD3800B35535 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 			children = (
 				D6EB7CD6200E862600B35535 /* UIResponder+Extension.swift */,
 				D6EB7CE3200EA66400B35535 /* ObservableType.swift */,
+				D6EB7CED200EBD3800B35535 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 			children = (
 				D6EB7CC7200E7E3100B35535 /* ConstantsAPI.swift */,
 				D6EB7CE6200EA72100B35535 /* ConstantsCreditCard.swift */,
+				D6EB7CEA200EBC8700B35535 /* ConstantsCreditCardTemplate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -446,11 +454,13 @@
 			files = (
 				D6EB7CD4200E804C00B35535 /* CCGenGenerateButton.swift in Sources */,
 				D6EB7CCB200E801600B35535 /* CCGenTextField.swift in Sources */,
+				D6EB7CEB200EBC8700B35535 /* ConstantsCreditCardTemplate.swift in Sources */,
 				D6EB7CC8200E7E3100B35535 /* ConstantsAPI.swift in Sources */,
 				D6EB7C9E200E7A3700B35535 /* AppDelegate.swift in Sources */,
 				D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCE200E802600B35535 /* CCGenValidateButton.swift in Sources */,
 				D6EB7CE1200E953C00B35535 /* CreditCard.swift in Sources */,
+				D6EB7CEE200EBD3800B35535 /* String+Extension.swift in Sources */,
 				D6EB7CD1200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD7200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC4200E7D2B00B35535 /* CCGenViewController.swift in Sources */,
@@ -465,11 +475,13 @@
 			files = (
 				D6EB7CD5200E804C00B35535 /* CCGenGenerateButton.swift in Sources */,
 				D6EB7CCC200E801600B35535 /* CCGenTextField.swift in Sources */,
+				D6EB7CEC200EBC8700B35535 /* ConstantsCreditCardTemplate.swift in Sources */,
 				D6EB7CC9200E7E3100B35535 /* ConstantsAPI.swift in Sources */,
 				D6EB7CB3200E7A3700B35535 /* CreditCardGeneratorTests.swift in Sources */,
 				D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCF200E802600B35535 /* CCGenValidateButton.swift in Sources */,
 				D6EB7CE2200E953C00B35535 /* CreditCard.swift in Sources */,
+				D6EB7CEF200EBD3800B35535 /* String+Extension.swift in Sources */,
 				D6EB7CD2200E803A00B35535 /* CCGenValidationIndicatorView.swift in Sources */,
 				D6EB7CD8200E862600B35535 /* UIResponder+Extension.swift in Sources */,
 				D6EB7CC5200E7D2B00B35535 /* CCGenViewController.swift in Sources */,

@@ -12,6 +12,5 @@ class CCGenValidateButton: UIButton {
     
     func configure() {
         setTitle("Validate", for: .normal)
-        isUserInteractionEnabled = true
     }
 }

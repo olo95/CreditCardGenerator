@@ -7,7 +7,7 @@
 //
 
 struct ConstantsCreditCard {
-    static var spaceIndexes = [4, 9, 14, 19, 25, 29]
+    static var spaceIndexes = [4, 9, 14, 19, 25]
     static var backslash = (index: 22, char: "/")
-    static var length = 30
+    static var length = 29
 }
