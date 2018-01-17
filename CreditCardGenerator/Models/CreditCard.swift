@@ -9,5 +9,14 @@
 import Foundation
 
 class CreditCard {
-    
+    var bin: Int?
+    var bank: String?
+    var card: String?
+    var type: String?
+    var level: String?
+    var country: String?
+    var countrycode: String?
+    var website: String?
+    var phone: String?
+    var valid: String?
 }

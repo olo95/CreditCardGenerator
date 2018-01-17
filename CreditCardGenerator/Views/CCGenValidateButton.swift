@@ -11,6 +11,7 @@ import UIKit
 class CCGenValidateButton: UIButton {
     
     func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
         setTitle("Validate", for: .normal)
     }
 }

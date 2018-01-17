@@ -37,14 +37,23 @@ class CCGenViewController: UIViewController {
     }
     
     private func setupMainStackView() {
-        ccGenMainStackView = UIStackView(frame: view.frame)
+        ccGenMainStackView = UIStackView()
+        ccGenMainStackView.translatesAutoresizingMaskIntoConstraints = false
         ccGenMainStackView.distribution = .fillEqually
         ccGenMainStackView.axis = .vertical
         view.addSubview(ccGenMainStackView)
+        
+        view.addConstraints([
+            NSLayoutConstraint(item: ccGenMainStackView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: ccGenMainStackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: ccGenMainStackView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: ccGenMainStackView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+            ])
     }
     
     private func setupInputStackView() {
         ccGenInputStackView = UIStackView()
+        ccGenInputStackView.translatesAutoresizingMaskIntoConstraints = false
         ccGenInputStackView.distribution = .fillEqually
         ccGenInputStackView.axis = .vertical
         ccGenMainStackView.addArrangedSubview(ccGenInputStackView)
@@ -59,6 +68,7 @@ class CCGenViewController: UIViewController {
     
     private func setupOutputStackView() {
         ccGenOutputStackView = UIStackView()
+        ccGenOutputStackView.translatesAutoresizingMaskIntoConstraints = false
         ccGenOutputStackView.distribution = .fillEqually
         ccGenOutputStackView.axis = .horizontal
         ccGenMainStackView.addArrangedSubview(ccGenOutputStackView)
@@ -72,13 +82,15 @@ class CCGenViewController: UIViewController {
     }
     
     private func bindUI() {
+        ccGenValidationIndicatorView.isValid.bind(to: viewModel.isCreditCardValid).disposed(by: bag)
+        ccGenGenerateButton.isCrediCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
         
         ccGenTextField.rx.text
             .unwrap()
             .filter { $0.count == ConstantsCreditCard.length }
             .sample(ccGenValidateButton.rx.tap)
             .subscribe( onNext: { text in
-                self.viewModel.creditCardtToValidate.onNext(text)
+                self.viewModel.creditCardToValidate.onNext(text)
             }).disposed(by: bag)
     }
 }

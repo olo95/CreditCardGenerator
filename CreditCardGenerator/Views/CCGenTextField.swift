@@ -16,6 +16,8 @@ class CCGenTextField: UITextField {
     
     func configure() {
         backgroundColor = UIColor.white
+        placeholder = "XXXX XXXX XXXX XXXX XX/XX XXX"
+        translatesAutoresizingMaskIntoConstraints = false
         
         rx.value.subscribe( onNext: { value in
             guard let value = value else {
