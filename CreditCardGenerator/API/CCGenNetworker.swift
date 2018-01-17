@@ -10,7 +10,7 @@ import Foundation
 
 class CCGenNetworker {
     
-    static func GET(with creditCardData: String, completionHandler: @escaping (CreditCard?) -> ()) {
+    static func GET(with creditCardData: String, completionHandler: @escaping (CreditCardResponse) -> ()) {
         
         let cc = creditCardData[ConstantsCreditCardTemplate.creditCardNumber].replacingOccurrences(of: " ", with: "")
         let methodParameters: [(String,String)] = [
@@ -29,6 +29,7 @@ class CCGenNetworker {
             func displayError(_ error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
+                completionHandler(CreditCardResponse(errorResponse: nil, successResponse: nil))
             }
             
             guard (error == nil) else {
@@ -49,7 +50,9 @@ class CCGenNetworker {
             let parsedResult: [String:AnyObject]!
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+                completionHandler(CreditCardResponse(errorResponse: CreditCardErrorResponse(json: parsedResult), successResponse: CreditCard(json: parsedResult)))
                 print(parsedResult)
+                
             } catch {
                 displayError("Could not parse the data as JSON: '\(data)'")
                 return

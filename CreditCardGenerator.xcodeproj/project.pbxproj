@@ -11,6 +11,8 @@
 		5682AED24BF8823B2AE27F1A /* Pods_CreditCardGeneratorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87776EF2923C2EBA2DB0B58B /* Pods_CreditCardGeneratorTests.framework */; };
 		D6858E7F200FC55E00384E84 /* CCGenNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6858E7E200FC55E00384E84 /* CCGenNetworker.swift */; };
 		D6858E80200FC55E00384E84 /* CCGenNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6858E7E200FC55E00384E84 /* CCGenNetworker.swift */; };
+		D6858E82200FDB7700384E84 /* CreditCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6858E81200FDB7700384E84 /* CreditCardResponse.swift */; };
+		D6858E83200FDB7700384E84 /* CreditCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6858E81200FDB7700384E84 /* CreditCardResponse.swift */; };
 		D6EB7C9E200E7A3700B35535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7C9D200E7A3700B35535 /* AppDelegate.swift */; };
 		D6EB7CA5200E7A3700B35535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EB7CA4200E7A3700B35535 /* Assets.xcassets */; };
 		D6EB7CB3200E7A3700B35535 /* CreditCardGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB7CB2200E7A3700B35535 /* CreditCardGeneratorTests.swift */; };
@@ -62,6 +64,7 @@
 		D00970FF1530EEA176101A9E /* Pods-CreditCardGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreditCardGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-CreditCardGenerator/Pods-CreditCardGenerator.release.xcconfig"; sourceTree = "<group>"; };
 		D3DEBE67B55F02895CB26F0E /* Pods-CreditCardGeneratorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreditCardGeneratorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CreditCardGeneratorTests/Pods-CreditCardGeneratorTests.release.xcconfig"; sourceTree = "<group>"; };
 		D6858E7E200FC55E00384E84 /* CCGenNetworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCGenNetworker.swift; sourceTree = "<group>"; };
+		D6858E81200FDB7700384E84 /* CreditCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardResponse.swift; sourceTree = "<group>"; };
 		D6EB7C9A200E7A3700B35535 /* CreditCardGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditCardGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EB7C9D200E7A3700B35535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6EB7CA4200E7A3700B35535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D6858E7E200FC55E00384E84 /* CCGenNetworker.swift */,
+				D6858E81200FDB7700384E84 /* CreditCardResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -463,6 +467,7 @@
 				D6EB7C9E200E7A3700B35535 /* AppDelegate.swift in Sources */,
 				D6EB7CDD200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCE200E802600B35535 /* CCGenValidateButton.swift in Sources */,
+				D6858E82200FDB7700384E84 /* CreditCardResponse.swift in Sources */,
 				D6EB7CE1200E953C00B35535 /* CreditCard.swift in Sources */,
 				D6858E7F200FC55E00384E84 /* CCGenNetworker.swift in Sources */,
 				D6EB7CEE200EBD3800B35535 /* String+Extension.swift in Sources */,
@@ -485,6 +490,7 @@
 				D6EB7CB3200E7A3700B35535 /* CreditCardGeneratorTests.swift in Sources */,
 				D6EB7CDE200E8DDD00B35535 /* CCGenViewModel.swift in Sources */,
 				D6EB7CCF200E802600B35535 /* CCGenValidateButton.swift in Sources */,
+				D6858E83200FDB7700384E84 /* CreditCardResponse.swift in Sources */,
 				D6EB7CE2200E953C00B35535 /* CreditCard.swift in Sources */,
 				D6858E80200FC55E00384E84 /* CCGenNetworker.swift in Sources */,
 				D6EB7CEF200EBD3800B35535 /* String+Extension.swift in Sources */,

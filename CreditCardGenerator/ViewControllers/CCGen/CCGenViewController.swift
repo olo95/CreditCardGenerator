@@ -31,6 +31,7 @@ class CCGenViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = UIColor.lightGray
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         setupMainStackView()
         setupInputStackView()
         setupOutputStackView()
@@ -76,14 +77,14 @@ class CCGenViewController: UIViewController {
         ccGenValidationIndicatorView = CCGenValidationIndicatorView()
         ccGenValidationIndicatorView.configure()
         ccGenOutputStackView.addArrangedSubview(ccGenValidationIndicatorView)
-        ccGenGenerateButton = CCGenGenerateButton()
+        ccGenGenerateButton = CCGenGenerateButton(type: .system)
         ccGenGenerateButton.configure()
         ccGenOutputStackView.addArrangedSubview(ccGenGenerateButton)
     }
     
     private func bindUI() {
-        ccGenValidationIndicatorView.isValid.bind(to: viewModel.isCreditCardValid).disposed(by: bag)
-        ccGenGenerateButton.isCrediCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
+        viewModel.isCreditCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
+        ccGenValidationIndicatorView.isValid.bind(to: ccGenGenerateButton.isCrediCardValid).disposed(by: bag)
         
         ccGenTextField.rx.text
             .unwrap()
@@ -92,5 +93,11 @@ class CCGenViewController: UIViewController {
             .subscribe( onNext: { text in
                 self.viewModel.creditCardToValidate.onNext(text)
             }).disposed(by: bag)
+    }
+    
+    
+    @objc
+    private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

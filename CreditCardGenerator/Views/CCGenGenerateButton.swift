@@ -17,7 +17,6 @@ class CCGenGenerateButton: UIButton {
     
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = true
         setTitle("Generate", for: .normal)
         
         bindUI()
@@ -25,8 +24,10 @@ class CCGenGenerateButton: UIButton {
     
     private func bindUI() {
         isCrediCardValid.subscribe( onNext: { isCrediCardValid in
-            self.isUserInteractionEnabled = isCrediCardValid
-            self.tintColor = isCrediCardValid ? UIColor.blue : UIColor.gray
+            DispatchQueue.main.async {
+                self.isUserInteractionEnabled = isCrediCardValid
+                self.setTitleColor(isCrediCardValid ? UIColor.green : UIColor.gray, for: .normal)
+            }
         }).disposed(by: bag)
     }
 }
