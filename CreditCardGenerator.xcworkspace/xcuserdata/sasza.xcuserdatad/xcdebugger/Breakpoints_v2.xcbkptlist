@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "537914426.139912"
+            timestampString = "537921488.802996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "537914426.1399879"
+            timestampString = "537921488.80343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewModel.swift"
-            timestampString = "537914426.140053"
+            filePath = "CreditCardGenerator/Views/CCGenValidationIndicatorView.swift"
+            timestampString = "537921488.803731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "verifyCreditCard(data:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

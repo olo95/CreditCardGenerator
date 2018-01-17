@@ -14,6 +14,7 @@ class CCGenViewModel {
     
     var creditCardToValidate = BehaviorSubject<String>(value: "")
     var isCreditCardValid = BehaviorSubject<Bool>(value: false)
+    var messageToAlert = PublishSubject<String>()
     
     init() {
         creditCardToValidate
@@ -26,6 +27,7 @@ class CCGenViewModel {
     private func verifyCreditCard(data: String) {
         CCGenNetworker.GET(with: data) { response in
             self.isCreditCardValid.onNext(response.successResponse != nil)
+            
         }
     }
 }

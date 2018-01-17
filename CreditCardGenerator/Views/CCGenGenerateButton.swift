@@ -13,8 +13,6 @@ class CCGenGenerateButton: UIButton {
     
     let bag = DisposeBag()
     
-    var isCrediCardValid = BehaviorSubject<Bool>(value: false)
-    
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         setTitle("Generate", for: .normal)
@@ -23,11 +21,6 @@ class CCGenGenerateButton: UIButton {
     }
     
     private func bindUI() {
-        isCrediCardValid.subscribe( onNext: { isCrediCardValid in
-            DispatchQueue.main.async {
-                self.isUserInteractionEnabled = isCrediCardValid
-                self.setTitleColor(isCrediCardValid ? UIColor.green : UIColor.gray, for: .normal)
-            }
-        }).disposed(by: bag)
+        
     }
 }

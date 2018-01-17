@@ -62,9 +62,9 @@ class CCGenViewController: UIViewController {
         ccGenTextField = CCGenTextField()
         ccGenTextField.configure()
         ccGenInputStackView.addArrangedSubview(ccGenTextField)
-        ccGenValidateButton = CCGenValidateButton(type: .system)
-        ccGenValidateButton.configure()
-        ccGenInputStackView.addArrangedSubview(ccGenValidateButton)
+        ccGenGenerateButton = CCGenGenerateButton(type: .system)
+        ccGenGenerateButton.configure()
+        ccGenInputStackView.addArrangedSubview(ccGenGenerateButton)
     }
     
     private func setupOutputStackView() {
@@ -77,14 +77,13 @@ class CCGenViewController: UIViewController {
         ccGenValidationIndicatorView = CCGenValidationIndicatorView()
         ccGenValidationIndicatorView.configure()
         ccGenOutputStackView.addArrangedSubview(ccGenValidationIndicatorView)
-        ccGenGenerateButton = CCGenGenerateButton(type: .system)
-        ccGenGenerateButton.configure()
-        ccGenOutputStackView.addArrangedSubview(ccGenGenerateButton)
+        ccGenValidateButton = CCGenValidateButton(type: .system)
+        ccGenValidateButton.configure()
+        ccGenOutputStackView.addArrangedSubview(ccGenValidateButton)
     }
     
     private func bindUI() {
         viewModel.isCreditCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
-        ccGenValidationIndicatorView.isValid.bind(to: ccGenGenerateButton.isCrediCardValid).disposed(by: bag)
         
         ccGenTextField.rx.text
             .unwrap()
