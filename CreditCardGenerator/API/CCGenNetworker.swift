@@ -10,7 +10,7 @@ import Foundation
 
 class CCGenNetworker {
     
-    static func GET(with creditCardData: String, completionHandler: @escaping (CreditCardResponse) -> ()) {
+    static func GET(with creditCardData: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
         
         let cc = creditCardData[ConstantsCreditCardTemplate.creditCardNumber].replacingOccurrences(of: " ", with: "")
         let methodParameters: [(String,String)] = [
@@ -25,41 +25,38 @@ class CCGenNetworker {
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            func displayError(_ error: String) {
-                print(error)
-                print("URL at time of error: \(url)")
-                completionHandler(CreditCardResponse(errorResponse: nil, successResponse: nil))
-            }
-            
-            guard (error == nil) else {
-                displayError("There was an error with your request: \(error!)")
-                return
-            }
-            
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                displayError("Your request returned a status code other than 2xx!")
-                return
-            }
-            
-            guard let data = data else {
-                displayError("No data was returned by the request!")
-                return
-            }
-            
-            let parsedResult: [String:AnyObject]!
-            do {
-                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-                completionHandler(CreditCardResponse(errorResponse: CreditCardErrorResponse(json: parsedResult), successResponse: CreditCard(json: parsedResult)))
-                print(parsedResult)
-                
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
-                return
-            }
-            
+            completionHandler(data, response, error)
         }
         task.resume()
+    }
+    
+    static func parseResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> CreditCardResponse {
+        
+        guard (error == nil) else {
+            print("There was an error with your request: \(error!)")
+            return CreditCardResponse(errorResponse: nil, successResponse: nil)
+        }
+        
+        guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+            print("Your request returned a status code other than 2xx!")
+            return CreditCardResponse(errorResponse: nil, successResponse: nil)
+        }
+        
+        guard let data = data else {
+            print("No data was returned by the request!")
+            return CreditCardResponse(errorResponse: nil, successResponse: nil)
+        }
+        
+        let parsedResult: [String:AnyObject]!
+        do {
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+            return CreditCardResponse(errorResponse: CreditCardErrorResponse(json: parsedResult), successResponse: CreditCard(json: parsedResult))
+            print(parsedResult)
+            
+        } catch {
+            print("Could not parse the data as JSON: '\(data)'")
+            return CreditCardResponse(errorResponse: nil, successResponse: nil)
+        }
     }
     
     private static func escapedParameters(_ parameters: [(String, String)]) -> String {

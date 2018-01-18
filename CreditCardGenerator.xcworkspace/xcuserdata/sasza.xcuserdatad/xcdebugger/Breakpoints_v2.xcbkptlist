@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "537997200.398777"
+            timestampString = "538001259.3595279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "537997200.4037499"
+            timestampString = "538001259.359604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "bindUI()"
             landmarkType = "7">
          </BreakpointContent>

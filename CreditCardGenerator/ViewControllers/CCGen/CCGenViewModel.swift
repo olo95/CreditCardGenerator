@@ -25,8 +25,8 @@ class CCGenViewModel {
     }
     
     private func verifyCreditCard(data: String) {
-        CCGenNetworker.GET(with: data) { response in
-            self.isCreditCardValid.onNext(response.successResponse != nil)
+        CCGenNetworker.GET(with: data) { data, response, error in
+            self.isCreditCardValid.onNext(CCGenNetworker.parseResponse(data, response, error).successResponse != nil)
             
         }
     }

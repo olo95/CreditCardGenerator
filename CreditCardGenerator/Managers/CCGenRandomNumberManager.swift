@@ -53,6 +53,6 @@ class CCGenRandomNumberManager {
         let sequenceOfSummedDigits = sequenceOfSingleDigits.map { return $0.reduce(0, +) }
         let modTen = sequenceOfSummedDigits.reduce(0, +) % 10
         
-        return 10 - modTen
+        return modTen == 0 ? 0 : 10 - modTen
     }
 }
