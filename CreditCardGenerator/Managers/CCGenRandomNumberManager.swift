@@ -8,13 +8,36 @@
 
 import Foundation
 
+enum CreditCardType: UInt32 {
+    case masterCard = 0
+    case visa = 1
+}
+
 class CCGenRandomNumberManager {
     
     static func generateRandomCreditCard() -> String {
-        var type = arc4random_uniform(2)
-        var inn = type % 2 ? 
+        let creditCardType = CreditCardType(rawValue: arc4random_uniform(2))
+        var inn: UInt32
         
-        return ""
+        switch creditCardType! {
+        case .masterCard:
+            inn = 51 + arc4random_uniform(5)
+        case .visa:
+            inn = 4
+        default:
+            break
+        }
+        
+        let numberOfRemainingDigits = 15 - String(inn).count
+        var remainingNumbers: String = ""
+        
+        for _ in 0..<numberOfRemainingDigits {
+            remainingNumbers += String(arc4random_uniform(10))
+        }
+        
+        var creditCardWithoutLuhnDigit = String(inn) + remainingNumbers
+        
+        return creditCardWithoutLuhnDigit + String(calculateLuhnDigit(basedOn: Int(creditCardWithoutLuhnDigit)!))
     }
     
     private static func calculateLuhnDigit(basedOn number: Int) -> Int {

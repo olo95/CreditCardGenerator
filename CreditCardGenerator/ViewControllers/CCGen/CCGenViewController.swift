@@ -85,6 +85,16 @@ class CCGenViewController: UIViewController {
     private func bindUI() {
         viewModel.isCreditCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
         
+        ccGenGenerateButton.rx.tap
+            .subscribe( onNext: { _ in
+                ccGenTextField.text = ""
+                let randomCreditCard = CCGenRandomNumberManager.generateRandomCreditCard()
+                for char in randomCreditCard {
+                    self.ccGenTextField.text! += String(char)
+                    self.ccGenTextField.sendActions(for: .valueChanged)
+                }
+        }).disposed(by: bag)
+        
         ccGenTextField.rx.text
             .unwrap()
             .filter { $0.count == ConstantsCreditCard.length }
