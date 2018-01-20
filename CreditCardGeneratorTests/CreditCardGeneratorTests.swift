@@ -36,7 +36,10 @@ class CreditCardGeneratorTests: XCTestCase {
     func testLuhnDigitComputation() {
         for _ in 0 ..< 100000 {
             let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
-            let luhnDigit = CCGenRandomNumberManager.default.calculateLuhnDigit(basedOn: Int(randomCC)!)
+            guard let randomCCAsInt = Int(randomCC) else {
+                XCTFail()
+            }
+            let luhnDigit = CCGenRandomNumberManager.default.calculateLuhnDigit(basedOn: randomCCAsInt)
             if luhnDigit != 0 {
                 XCTFail()
             }
@@ -48,6 +51,17 @@ class CreditCardGeneratorTests: XCTestCase {
             let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
             if randomCC.count != ConstantsCreditCard.numbersCount {
                 XCTFail()
+            }
+        }
+    }
+    
+    func testCreditCardIntCast() {
+        for _ in 0 ..< 100000 {
+            let randomCcWithoutLuhnDigit = CCGenRandomNumberManager.default.generateNumberSequenceWithoutLuhnDigit()
+            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            guard Int(randomCcWithoutLuhnDigit) != nil, Int(randomCC) != nil else {
+                XCTFail()
+                return
             }
         }
     }

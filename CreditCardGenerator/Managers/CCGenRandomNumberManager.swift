@@ -19,11 +19,25 @@ class CCGenRandomNumberManager: NSObject {
     
     private override init() {}
     
-    func generateRandomCreditCard() -> String {
-        let creditCardType = CreditCardType(rawValue: arc4random_uniform(2))
+    func generateRandomCreditCard() -> String? {
+        guard let creditCardWithoutLuhnDigit = generateNumberSequenceWithoutLuhnDigit() else {
+            return nil
+        }
+        
+        guard let creditCardStringAsInt = Int(creditCardWithoutLuhnDigit) else {
+            return nil
+        }
+        
+        return creditCardWithoutLuhnDigit + String(calculateLuhnDigit(basedOn: creditCardStringAsInt))
+    }
+    
+    func generateNumberSequenceWithoutLuhnDigit() -> String? {
+        guard let creditCardType = CreditCardType(rawValue: arc4random_uniform(2)) else {
+            return nil
+        }
         var inn: UInt32
         
-        switch creditCardType! {
+        switch creditCardType {
         case .masterCard:
             inn = 51 + arc4random_uniform(5)
         case .visa:
@@ -37,9 +51,7 @@ class CCGenRandomNumberManager: NSObject {
             remainingNumbers += String(arc4random_uniform(10))
         }
         
-        let creditCardWithoutLuhnDigit = String(inn) + remainingNumbers
-        
-        return creditCardWithoutLuhnDigit + String(calculateLuhnDigit(basedOn: Int(creditCardWithoutLuhnDigit)!))
+        return String(inn) + remainingNumbers
     }
     
     func calculateLuhnDigit(basedOn number: Int) -> Int {

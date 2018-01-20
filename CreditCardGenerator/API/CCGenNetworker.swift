@@ -24,8 +24,17 @@ class CCGenNetworker: NSObject {
         ]
         
         let session = URLSession.shared
-        let urlString = ConstantsAPI.baseURL + escapedParameters(methodParameters)
-        let url = URL(string: urlString)!
+        
+        guard let escapedParametersCombined = escapedParameters(methodParameters) else {
+            return
+        }
+        
+        let urlString = ConstantsAPI.baseURL + escapedParametersCombined
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -51,7 +60,7 @@ class CCGenNetworker: NSObject {
             return CreditCardResponse(errorResponse: nil, successResponse: nil)
         }
         
-        let parsedResult: [String:AnyObject]!
+        let parsedResult: [String:AnyObject]
         do {
             parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
             return CreditCardResponse(errorResponse: CreditCardErrorResponse(json: parsedResult), successResponse: CreditCard(json: parsedResult))
@@ -61,7 +70,7 @@ class CCGenNetworker: NSObject {
         }
     }
     
-    private func escapedParameters(_ parameters: [(String, String)]) -> String {
+    private func escapedParameters(_ parameters: [(String, String)]) -> String? {
         
         if parameters.isEmpty {
             return ""
@@ -69,8 +78,10 @@ class CCGenNetworker: NSObject {
             var keyValuePairs = [String]()
             for (key, value) in parameters {
                 let stringValue = "\(value)"
-                let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-                keyValuePairs.append(key + "=" + "\(escapedValue!)")
+                guard let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                    return nil
+                }
+                keyValuePairs.append(key + "=" + "\(escapedValue)")
             }
             return "?\(keyValuePairs.joined(separator: "&"))"
         }
