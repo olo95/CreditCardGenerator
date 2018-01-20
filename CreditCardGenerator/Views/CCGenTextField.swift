@@ -18,6 +18,7 @@ class CCGenTextField: UITextField {
         backgroundColor = UIColor.white
         placeholder = "XXXX XXXX XXXX XXXX XX/XX XXX"
         translatesAutoresizingMaskIntoConstraints = false
+        textAlignment = .center
         
         rx.value.subscribe( onNext: { value in
             guard let value = value else {

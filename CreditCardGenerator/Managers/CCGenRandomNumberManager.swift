@@ -13,9 +13,13 @@ enum CreditCardType: UInt32 {
     case visa = 1
 }
 
-class CCGenRandomNumberManager {
+class CCGenRandomNumberManager: NSObject {
     
-    static func generateRandomCreditCard() -> String {
+    static let `default` = CCGenRandomNumberManager()
+    
+    private override init() {}
+    
+    func generateRandomCreditCard() -> String {
         let creditCardType = CreditCardType(rawValue: arc4random_uniform(2))
         var inn: UInt32
         
@@ -24,8 +28,6 @@ class CCGenRandomNumberManager {
             inn = 51 + arc4random_uniform(5)
         case .visa:
             inn = 4
-        default:
-            break
         }
         
         let numberOfRemainingDigits = 15 - String(inn).count
@@ -35,12 +37,12 @@ class CCGenRandomNumberManager {
             remainingNumbers += String(arc4random_uniform(10))
         }
         
-        var creditCardWithoutLuhnDigit = String(inn) + remainingNumbers
+        let creditCardWithoutLuhnDigit = String(inn) + remainingNumbers
         
         return creditCardWithoutLuhnDigit + String(calculateLuhnDigit(basedOn: Int(creditCardWithoutLuhnDigit)!))
     }
     
-    private static func calculateLuhnDigit(basedOn number: Int) -> Int {
+    func calculateLuhnDigit(basedOn number: Int) -> Int {
         
         let sequence = String(number).map { Int(String($0))! }
         let sequenceOfSingleDigits = sequence

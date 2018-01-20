@@ -33,4 +33,22 @@ class CreditCardGeneratorTests: XCTestCase {
         }
     }
     
+    func testLuhnDigitComputation() {
+        for _ in 0 ..< 100000 {
+            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            let luhnDigit = CCGenRandomNumberManager.default.calculateLuhnDigit(basedOn: Int(randomCC)!)
+            if luhnDigit != 0 {
+                XCTFail()
+            }
+        }
+    }
+    
+    func testLengthRandomCreditCards() {
+        for _ in 0 ..< 100000 {
+            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            if randomCC.count != ConstantsCreditCard.numbersCount {
+                XCTFail()
+            }
+        }
+    }
 }

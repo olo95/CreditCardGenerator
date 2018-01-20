@@ -8,9 +8,13 @@
 
 import Foundation
 
-class CCGenNetworker {
+class CCGenNetworker: NSObject {
     
-    static func GET(with creditCardData: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+    private override init() {}
+    
+    static let `default` = CCGenNetworker()
+    
+    func GET(with creditCardData: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
         
         let cc = creditCardData[ConstantsCreditCardTemplate.creditCardNumber].replacingOccurrences(of: " ", with: "")
         let methodParameters: [(String,String)] = [
@@ -30,7 +34,7 @@ class CCGenNetworker {
         task.resume()
     }
     
-    static func parseResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> CreditCardResponse {
+    func parseResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> CreditCardResponse {
         
         guard (error == nil) else {
             print("There was an error with your request: \(error!)")
@@ -51,15 +55,13 @@ class CCGenNetworker {
         do {
             parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
             return CreditCardResponse(errorResponse: CreditCardErrorResponse(json: parsedResult), successResponse: CreditCard(json: parsedResult))
-            print(parsedResult)
-            
         } catch {
             print("Could not parse the data as JSON: '\(data)'")
             return CreditCardResponse(errorResponse: nil, successResponse: nil)
         }
     }
     
-    private static func escapedParameters(_ parameters: [(String, String)]) -> String {
+    private func escapedParameters(_ parameters: [(String, String)]) -> String {
         
         if parameters.isEmpty {
             return ""

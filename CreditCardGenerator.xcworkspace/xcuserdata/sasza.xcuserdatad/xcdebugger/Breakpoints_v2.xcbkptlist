@@ -9,38 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "538001259.3595279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "bindUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CreditCardGenerator/ViewControllers/CCGen/CCGenViewController.swift"
-            timestampString = "538001259.359604"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "bindUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CreditCardGenerator/Views/CCGenValidationIndicatorView.swift"
             timestampString = "537921488.803731"
             startingColumnNumber = "9223372036854775807"
@@ -49,6 +17,38 @@
             endingLineNumber = "52"
             landmarkName = "bindUI()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Bool) -&gt; () in CreditCardGenerator.CCGenValidationIndicatorView.(bindUI in _1DDFFE46EDFCA6A3E9C7E84F810FEFC2)() -&gt; ()"
+                  moduleName = "CreditCardGenerator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sasza/creditcardgenerator/CreditCardGenerator/Views/CCGenValidationIndicatorView.swift"
+                  timestampString = "538138083.581957"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "371">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Bool) -&gt; () in CreditCardGeneratorTests.CCGenValidationIndicatorView.(bindUI in _23D0EA9B97A8B256B6387834D42C36BC)() -&gt; ()"
+                  moduleName = "CreditCardGeneratorTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sasza/creditcardgenerator/CreditCardGenerator/Views/CCGenValidationIndicatorView.swift"
+                  timestampString = "538138084.858266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "371">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

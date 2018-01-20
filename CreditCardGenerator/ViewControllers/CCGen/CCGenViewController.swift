@@ -88,9 +88,13 @@ class CCGenViewController: UIViewController {
         ccGenGenerateButton.rx.tap
             .subscribe( onNext: { _ in
                 self.ccGenTextField.text = ""
-                let randomCreditCard = CCGenRandomNumberManager.generateRandomCreditCard()
+                let randomCreditCard = CCGenRandomNumberManager.default.generateRandomCreditCard()
                 for char in randomCreditCard {
                     self.ccGenTextField.text! += String(char)
+                    self.ccGenTextField.sendActions(for: .valueChanged)
+                }
+                for _ in 0 ..< 7 {
+                    self.ccGenTextField.text! += "0"
                     self.ccGenTextField.sendActions(for: .valueChanged)
                 }
         }).disposed(by: bag)
