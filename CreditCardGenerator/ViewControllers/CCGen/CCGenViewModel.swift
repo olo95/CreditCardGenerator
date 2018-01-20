@@ -8,13 +8,17 @@
 
 import RxSwift
 
+enum RequestProcessStatus {
+    case noRequest, failure, progress, success
+}
+
 class CCGenViewModel {
-    
     let bag = DisposeBag()
     
     var creditCardToValidate = BehaviorSubject<String>(value: "")
-    var isCreditCardValid = BehaviorSubject<Bool>(value: false)
+    var requestProcessStatus = BehaviorSubject<RequestProcessStatus>(value: .noRequest)
     var messageToAlert = PublishSubject<String>()
+    var isRequestInProcess = BehaviorSubject<Bool>(value: false)
     
     init() {
         creditCardToValidate
@@ -25,9 +29,11 @@ class CCGenViewModel {
     }
     
     private func verifyCreditCard(data: String) {
+        isRequestInProcess.onNext(true)
+        requestProcessStatus.onNext(.progress)
         CCGenNetworker.default.GET(with: data) { data, response, error in
-            self.isCreditCardValid.onNext(CCGenNetworker.default.parseResponse(data, response, error).successResponse != nil)
-            
+            self.isRequestInProcess.onNext(false)
+            self.requestProcessStatus.onNext(CCGenNetworker.default.parseResponse(data, response, error).successResponse != nil ? .success : .failure)
         }
     }
 }

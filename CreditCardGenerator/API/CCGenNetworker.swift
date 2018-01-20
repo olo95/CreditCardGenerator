@@ -16,31 +16,33 @@ class CCGenNetworker: NSObject {
     
     func GET(with creditCardData: String, completionHandler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
         
-        let cc = creditCardData[ConstantsCreditCardTemplate.creditCardNumber].replacingOccurrences(of: " ", with: "")
-        let methodParameters: [(String,String)] = [
-            (ConstantsAPI.formatTitle, ConstantsAPI.format),
-            (ConstantsAPI.apiKeyTitle, ConstantsAPI.apiKey),
-            (ConstantsAPI.ccTitle, cc)
-        ]
+        guard let url = createURL(with: creditCardData) else {
+            return
+        }
         
         let session = URLSession.shared
-        
-        guard let escapedParametersCombined = escapedParameters(methodParameters) else {
-            return
-        }
-        
-        let urlString = ConstantsAPI.baseURL + escapedParametersCombined
-        
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in
             completionHandler(data, response, error)
         }
         task.resume()
+    }
+    
+    func createURL(with creditCardNumber: String) -> URL? {
+        let methodParameters: [(String,String)] = [
+            (ConstantsAPI.formatTitle, ConstantsAPI.format),
+            (ConstantsAPI.apiKeyTitle, ConstantsAPI.apiKey),
+            (ConstantsAPI.ccTitle, creditCardNumber)
+        ]
+        
+        guard let escapedParametersCombined = escapedParameters(methodParameters) else {
+            return nil
+        }
+        
+        let urlString = ConstantsAPI.baseURL + escapedParametersCombined
+        
+        return URL(string: urlString)
     }
     
     func parseResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> CreditCardResponse {

@@ -33,11 +33,24 @@ class CreditCardGeneratorTests: XCTestCase {
         }
     }
     
+    func testCreditCardGenerationMethods() {
+        for _ in 0 ..< 100000 {
+            guard let _ = CCGenRandomNumberManager.default.generateNumberSequenceWithoutLuhnDigit(), let _ = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
+                XCTFail("Number generation failure")
+                return
+            }
+        }
+    }
+    
     func testLuhnDigitComputation() {
         for _ in 0 ..< 100000 {
-            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            guard let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
+                XCTFail("Number generation failure")
+                return
+            }
             guard let randomCCAsInt = Int(randomCC) else {
-                XCTFail()
+                XCTFail("Random CC Int cast error")
+                return
             }
             let luhnDigit = CCGenRandomNumberManager.default.calculateLuhnDigit(basedOn: randomCCAsInt)
             if luhnDigit != 0 {
@@ -48,21 +61,76 @@ class CreditCardGeneratorTests: XCTestCase {
     
     func testLengthRandomCreditCards() {
         for _ in 0 ..< 100000 {
-            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            guard let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
+                XCTFail("Number generation failure")
+                return
+            }
             if randomCC.count != ConstantsCreditCard.numbersCount {
                 XCTFail()
+                return
             }
         }
     }
     
     func testCreditCardIntCast() {
         for _ in 0 ..< 100000 {
-            let randomCcWithoutLuhnDigit = CCGenRandomNumberManager.default.generateNumberSequenceWithoutLuhnDigit()
-            let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard()
+            guard let randomCcWithoutLuhnDigit = CCGenRandomNumberManager.default.generateNumberSequenceWithoutLuhnDigit() else {
+                XCTFail("Number generation failure")
+                return
+            }
+            guard let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
+                XCTFail("Number generation failure")
+                return
+            }
             guard Int(randomCcWithoutLuhnDigit) != nil, Int(randomCC) != nil else {
                 XCTFail()
                 return
             }
+        }
+    }
+    
+    func testCreatingURL() {
+        for _ in 0 ..< 100000 {
+            guard let randomCC = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
+                XCTFail("Number generation failure")
+                return
+            }
+            
+            guard let _ = CCGenNetworker.default.createURL(with: randomCC) else {
+                XCTFail("URL generation failed")
+                return
+            }
+        }
+    }
+    
+    func testSuccessCodeAPIResponse() {
+        let expect = expectation(description: "GET")
+        CCGenNetworker.default.GET(with: "4976603425924902") { (data, response, error) in
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                XCTFail("Success response bad status code")
+                expect.fulfill()
+                return
+            }
+            XCTAssert(true)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5.0) { _ in
+            print("Server timeout")
+        }
+    }
+    
+    func testFailureCodeAPIResponse() {
+        let expect = expectation(description: "GET")
+        CCGenNetworker.default.GET(with: "4976603425924901") { (data, response, error) in
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 200 && statusCode > 299 else {
+                XCTFail("Failure response bad status code")
+                expect.fulfill()
+                return
+            }
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5.0) { _ in
+            print("Server timeout")
         }
     }
 }

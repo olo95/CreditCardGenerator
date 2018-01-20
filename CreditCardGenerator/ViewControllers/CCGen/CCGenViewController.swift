@@ -18,6 +18,7 @@ class CCGenViewController: UIViewController {
     var ccGenValidateButton: CCGenValidateButton!
     var ccGenValidationIndicatorView: CCGenValidationIndicatorView!
     var ccGenGenerateButton: CCGenGenerateButton!
+    var ccGenIndicatorView: UIActivityIndicatorView!
     
     var ccGenMainStackView: UIStackView!
     var ccGenInputStackView: UIStackView!
@@ -80,13 +81,16 @@ class CCGenViewController: UIViewController {
         ccGenValidateButton = CCGenValidateButton(type: .system)
         ccGenValidateButton.configure()
         ccGenOutputStackView.addArrangedSubview(ccGenValidateButton)
+        ccGenIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        ccGenOutputStackView.addArrangedSubview(ccGenIndicatorView)
     }
     
     private func bindUI() {
-        viewModel.isCreditCardValid.bind(to: ccGenValidationIndicatorView.isValid).disposed(by: bag)
+        viewModel.requestProcessStatus.bind(to: ccGenValidationIndicatorView.requestProcessStatus).disposed(by: bag)
         
         ccGenGenerateButton.rx.tap
             .subscribe( onNext: { _ in
+                self.viewModel.requestProcessStatus.onNext(.noRequest)
                 self.ccGenTextField.text = ""
                 guard let randomCreditCard = CCGenRandomNumberManager.default.generateRandomCreditCard() else {
                     return
@@ -106,8 +110,24 @@ class CCGenViewController: UIViewController {
             .filter { $0.count == ConstantsCreditCard.length }
             .sample(ccGenValidateButton.rx.tap)
             .subscribe( onNext: { text in
-                self.viewModel.creditCardToValidate.onNext(text)
+                let onlyCCNumber = text[ConstantsCreditCardTemplate.creditCardNumber].replacingOccurrences(of: " ", with: "")
+                self.viewModel.creditCardToValidate.onNext(onlyCCNumber)
             }).disposed(by: bag)
+        
+        viewModel.isRequestInProcess
+            .subscribe( onNext: { isRequestInProcess in
+                if isRequestInProcess {
+                    UIView.animate(withDuration: 0.3) {
+                        self.ccGenIndicatorView.startAnimating()
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        DispatchQueue.main.async {
+                            self.ccGenIndicatorView.stopAnimating()
+                        }
+                    }
+                }
+        }).disposed(by: bag)
     }
     
     

@@ -15,7 +15,7 @@ class CCGenValidationIndicatorView: UIView {
     
     var indicatorView: UIView!
     var isValidLabel: UILabel!
-    var isValid = BehaviorSubject<Bool>(value: false)
+    var requestProcessStatus = BehaviorSubject<RequestProcessStatus>(value: .noRequest)
     
     func configure() {
         indicatorView = UIView()
@@ -46,10 +46,22 @@ class CCGenValidationIndicatorView: UIView {
     }
     
     private func bindUI() {
-        isValid.subscribe( onNext: { isValid in
+        requestProcessStatus.subscribe( onNext: { status in
             DispatchQueue.main.async {
-                self.indicatorView.backgroundColor = isValid ? UIColor.green : UIColor.red
-                self.isValidLabel.text = isValid ? "Valid" : "Not valid"
+                switch status {
+                case .success:
+                    self.indicatorView.backgroundColor = UIColor.green
+                    self.isValidLabel.text = "Valid"
+                case .failure:
+                    self.indicatorView.backgroundColor = UIColor.red
+                    self.isValidLabel.text = "Not valid"
+                case .progress:
+                    self.indicatorView.backgroundColor = UIColor.yellow
+                    self.isValidLabel.text = "..."
+                case .noRequest:
+                    self.indicatorView.backgroundColor = UIColor.gray
+                    self.isValidLabel.text = ""
+                }
             }
         }).disposed(by: bag)
     }
